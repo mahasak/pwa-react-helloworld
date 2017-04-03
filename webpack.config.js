@@ -4,7 +4,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 const sourcePath = path.join(__dirname, './app');
-const staticsPath = path.join(__dirname, './static');
+const staticsPath = path.join(__dirname, './dist');
 
 module.exports = function (env) {
   const nodeEnv = env && env.prod ? 'production' : 'development';
@@ -64,7 +64,7 @@ module.exports = function (env) {
       vendor: ['react' ]
     },
     output: {
-      path: path.resolve('dist'),
+      path: staticsPath,
       filename: '[name].bundle.js',
       publicPath: '/dist/',
     },

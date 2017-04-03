@@ -6,7 +6,7 @@ import { AppContainer } from 'react-hot-loader'
 import 'index.html';
 
 ReactDOM.render(
-  <h1>Hello World</h1>,
+  <h1>Hello World React</h1>,
   document.getElementById('root')
 );
 
