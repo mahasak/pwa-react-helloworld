@@ -9,7 +9,7 @@ const staticsPath = path.join(__dirname, './static');
 module.exports = function (env) {
   const nodeEnv = env && env.prod ? 'production' : 'development';
   const isProd = nodeEnv === 'production';
-
+  
   const plugins = [
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
@@ -56,8 +56,12 @@ module.exports = function (env) {
     devtool: isProd ? 'source-map' : 'eval',
     context: sourcePath,
     entry: {
-      js: './index.js',
-      vendor: ['react']
+      js: [
+      'react-hot-loader/patch', 
+      'webpack/hot/only-dev-server',
+      './index.js'
+      ],
+      vendor: ['react' ]
     },
     output: {
       path: path.resolve('dist'),
